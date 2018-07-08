@@ -1,0 +1,7 @@
+function cactivate(){
+    source activate $1
+}
+
+alias dactivate(){
+    source deactivate
+}
