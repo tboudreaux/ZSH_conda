@@ -10,3 +10,6 @@ The file rkj-conda.zsh-theme is an oh_my_zsh theme which added an indicator as t
 I've no idea if these will work on others computers, you may have to modify them; however, they work on mine so hopefully they work on yours. 
 
 The files "running_labs", "jlab_start", and "clabstop" should all be added to your PATH for this stuff to have any chance of working for you.
+
+Your prompt should look like this if the theme was installed correctly:
+![alt text](https://github.com/tboudreaux/ZSH_conda/blob/master/Screen%20Shot%202018-07-09%20at%2010.09.57%20AM.png)
