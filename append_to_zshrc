@@ -5,3 +5,7 @@ function cactivate(){
 function dactivate(){
     source deactivate
 }
+
+function clab(){
+    /Users/tboudreaux/Programing/condaZSH/cjupyter.py $1
+}
