@@ -15,6 +15,11 @@ python_version = [x for x in os.listdir('{}/lib'.format(path)) if 'python' in x 
 jpath = "{}/bin/jupyter".format(path)
 lpath = "{}/lib/{}/site-packages/jupyterlab".format(path, python_version)
 if os.path.exists(jpath) and os.path.exists(lpath):
-    sp.Popen(args=['jlab_start {} {}'.format(jpath, sys.argv[1])], shell=True)
+    running = sp.check_output(['running_labs'])
+    running = running.lstrip().rstrip().split('\n')
+    if sys.argv[1] not in running:
+        sp.Popen(args=['jlab_start {} {}'.format(jpath, sys.argv[1])], shell=True)
+    else:
+        print(u'\u001b[33m Jupyter lab already running in enviroment {}\u001b[0m'.format(sys.argv[1]))
 else:
     print(u'\u001b[31m Jupyter not installed in conda env {}\u001b[0m'.format(sys.argv[1]))
