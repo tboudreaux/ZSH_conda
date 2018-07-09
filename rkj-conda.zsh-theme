@@ -1,3 +1,7 @@
+# user, host, full path, and time/date
+# on two lines for easier vgrepping
+# entry in a nice long thread on the Arch Linux forums: http://bbs.archlinux.org/viewtopic.php?pid=521888#p521888
+
 function hg_prompt_info {
     hg prompt --angle-brackets "\
 <hg:%{$fg[magenta]%}<branch>%{$reset_color%}><:%{$fg[magenta]%}<bookmark>%{$reset_color%}>\
@@ -13,7 +17,10 @@ BRACKET="%{$fg_bold[blue]%}"
 
 
 function myconda {
-  PYV=`python -c "import sys;t='{v[0]}.{v[1]}'.format(v=list(sys.version_info[:2]));sys.stdout.write(t)";`
+#   PYV=`python -c "import sys;t='{v[0]}.{v[1]}'.format(v=list(sys.version_info[:2]));sys.stdout.write(t)";`
+  PYPATH=$(which python)
+  NEW_PATH=${PYPATH: : -7}
+  PYV=$(ls $NEW_PATH | grep "^python[23].[0-9]$" | head -c 7 | tail -c 1)
 
   env=$CONDA_DEFAULT_ENV
   if [[ $env = "" ]]; then
@@ -30,7 +37,7 @@ function myconda {
 
 function retcode() {}
 
-# alternate prompt with anaconda prompt
+# alternate prompt with git & hg
 PROMPT=$'%{$fg_bold[blue]%}┌─[%{$fg_bold[green]%}%n%b%{$fg[magenta]%}@%{$fg[cyan]%}%m%{$fg_bold[blue]%}]%{$reset_color%} - %{$fg_bold[blue]%}[%{$fg_bold[white]%}%~%{$fg_bold[blue]%}]%{$reset_color%} - %{$fg_bold[blue]%}[%b%{$fg[yellow]%}'%D{"%Y-%m-%d %I:%M:%S"}%b$'%{$fg_bold[blue]%}]
 %{$fg_bold[blue]%}└─[%{$fg_bold[magenta]%}%?$(retcode)%{$fg_bold[blue]%}] <$(myconda)$(hg_prompt_info)>%{$reset_color%} '
 PS2=$' \e[0;34m%}%B>%{\e[0m%}%b '

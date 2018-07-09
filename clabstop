@@ -1,0 +1,12 @@
+#!/bin/bash
+
+PID=$(ps | grep jupyter | grep $1 | grep -v "grep" | grep -v "cjupyterstop" | cut -d' ' -f 1);
+for pid in $PID
+do
+	kill -2 $pid
+done
+PID=$(ps | grep jupyter | grep $1 | grep -v "grep" | grep -v "cjupyterstop" | cut -d' ' -f 1);
+for pid in $PID
+do
+	kill -2 $pid
+done

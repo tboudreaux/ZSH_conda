@@ -1,0 +1,6 @@
+#!/bin/bash
+
+jpath=$1
+env_name=$2
+
+$jpath lab -y --debug >> "/Users/tboudreaux/.jupyter_logs/jlab_$env_name.log" 2>&1
