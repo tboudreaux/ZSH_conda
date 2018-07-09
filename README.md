@@ -15,3 +15,9 @@ Your prompt should look like this if the theme was installed correctly:
 ![alt text](https://github.com/tboudreaux/ZSH_conda/blob/master/Screen%20Shot%202018-07-09%20at%2010.09.57%20AM.png)
 
 where mine says "general" your may say root, or whatever conda enviroment you have sourced. The enviroment name will color green if it a python 3 enviroment and orange if it is a python 2 enviroment. 
+
+You may have to run this command to prevent the enviroment name showing up twice
+
+```bash
+conda config --set changeps1 False
+```
