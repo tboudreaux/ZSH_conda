@@ -8,3 +8,5 @@ The file append_to_zshrc included two functions to add to your ~/.zshrc file. If
 The file rkj-conda.zsh-theme is an oh_my_zsh theme which added an indicator as to the conda enviroment you are working in to the prompt. 
 
 I've no idea if these will work on others computers, you may have to modify them; however, they work on mine so hopefully they work on yours. 
+
+The files "running_labs", "jlab_start", and "clabstop" should all be added to your PATH for this stuff to have any chance of working for you.
