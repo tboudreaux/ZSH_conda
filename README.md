@@ -11,7 +11,7 @@ I've no idea if these will work on others computers, you may have to modify them
 
 The files "running_labs", "jlab_start", and "clabstop" should all be added to your PATH for this stuff to have any chance of working for you.
 
-Your prompt should look like this if the theme was installed correctly:
+Your prompt should look something like this if the theme was installed correctly:
 ![alt text](https://github.com/tboudreaux/ZSH_conda/blob/master/Screen%20Shot%202018-07-09%20at%2010.09.57%20AM.png)
 
 where mine says "general" your may say root, or whatever conda enviroment you have sourced. The enviroment name will color green if it a python 3 enviroment and orange if it is a python 2 enviroment. 
