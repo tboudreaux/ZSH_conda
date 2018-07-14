@@ -25,6 +25,8 @@ conda config --set changeps1 False
 
 If you want to use these you will have to go through all the files and make sure that any paths in the files are pointing to valid locations, right now they all either point to valid paths on *my* computer or they have some placeholder text for you to put your desired path in.
 
+Enviroments can be activate by typing ```cactivate <tab>``` which will autocomplete avalible enviroments. You can revert to the root enviroment by typing ```dactivate```.
+
 ## Jupyter "Integration"
 Along with showing currently source conda enviroment in the shell I have included some files which make my life easier usign jupyter lab (note I wrote these for jupyter lab, but you could easily modify them to work with jupyter notebook, all you have to do is change the command in jlab_start). Their are 3 main parts: starting labs, stoping labs, and checking which labs are running. by including jlab_start and running_labs in your path, and by including the clab function (in append_to_zshrc) in your .zshrc file and by adding the \_clab.sh to your completions when you type
 
