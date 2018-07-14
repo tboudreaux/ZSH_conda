@@ -38,13 +38,16 @@ def is_running(port):
 envs = os.listdir('/anaconda/envs/')
 envs = [x for x in envs if x[0] != '.']
 
-if 'CONDA_DEFAULT_ENV' in os.environ:
+if 'CONDA_DEFAULT_ENV' in os.environ and not req_env:
     acc_env = req_env if req_env else os.environ['CONDA_DEFAULT_ENV'] 
     assert acc_env in envs or acc_env == 'root'
     path = "/anaconda/envs/{}".format(acc_env)
-else:
+elif 'CONDA_DEFAULT_ENV' not in os.environ and not req_env:
     acc_env = 'root'
     path = '/anaconda'
+else:
+    acc_env = req_env
+    path = "/anaconda/envs/{}".format(acc_env)
 
 python_version = [x for x in os.listdir('{}/lib'.format(path)) if 'python' in x and not 'lib' in x][0]
 jpath = "{}/bin/jupyter".format(path)
@@ -61,7 +64,7 @@ if os.path.exists(jpath) and os.path.exists(lpath):
             with open('/Users/tboudreaux/.jupyter_logs/ports/{}'.format(acc_env), 'w') as port_log:
                 port_log.write(str(port))
             try:
-                sys.stdout.write(u'{}Jupyter Lab Running (<ctrl-c> to stop):{}'.format(cc.GREEN, cc.RESET))
+                sys.stdout.write(u'{}Jupyter Lab Running in enviroment {} (<ctrl-c> to stop): {}'.format(cc.GREEN, acc_env, cc.RESET))
                 sys.stdout.flush()
                 while is_running(port):
                     if not os.path.exists('/Users/tboudreaux/.jupyter_logs/ports/{}'.format(acc_env)):
