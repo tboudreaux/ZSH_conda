@@ -21,3 +21,5 @@ You may have to run this command to prevent the enviroment name showing up twice
 ```bash
 conda config --set changeps1 False
 ```
+
+If you want to use these you will have to go through all the files and make sure that any paths in the files are pointing to valid locations, right now they all either point to valid paths on *my* computer or they have some placeholder text for you to put your desired path in.
