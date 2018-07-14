@@ -2,7 +2,7 @@ function cactivate(){
     source activate $1
 }
 
-function dactivate(){
+alias dactivate(){
     source deactivate
 }
 

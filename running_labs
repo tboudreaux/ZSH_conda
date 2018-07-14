@@ -6,26 +6,21 @@ function get_envs()
     env_list=$(echo $env_string | tr " " "\n")
 }
 
-array_contains () {
-    local seeking=$1; shift
-    local in=1
-    for element; do
-        if [[ $element == $seeking ]]; then
-            in=0
-            break
-        fi
-    done
-    return $in
-}
 
 get_envs
-PID=$(ps | grep jupyter | grep -v "grep" | grep -v "cjupyterstop" | grep -v "debug");
+PID=$(ps | grep jupyter | grep -v "grep" | grep -v "cjupyterstop" | grep -v "cjupyter.py" | grep -v "debug");
+i=0;
 for word in $PID
 do
 	for env in $env_list
 	do
 		if [[ $env == $word  ]]; then
 			echo $word
+			i=1+$i
 		fi
 	done
 done
+ROOTPID=$(ps aux | grep //anaconda/bin/jupyter-lab | grep -v "grep");
+if [[ $ROOTPID != ""  ]]; then
+	echo "root"
+fi

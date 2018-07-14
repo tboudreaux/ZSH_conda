@@ -1,0 +1,6 @@
+#!/bin/bash
+
+env=$1
+
+echo $env
+source activate $env

@@ -1,12 +1,10 @@
 #!/bin/bash
 
-PID=$(ps | grep jupyter | grep $1 | grep -v "grep" | grep -v "cjupyterstop" | cut -d' ' -f 1);
-for pid in $PID
-do
-	kill -2 $pid
-done
-PID=$(ps | grep jupyter | grep $1 | grep -v "grep" | grep -v "cjupyterstop" | cut -d' ' -f 1);
-for pid in $PID
-do
-	kill -2 $pid
-done
+env=$1
+port=$(/Users/tboudreaux/Programing/condaZSH/cjupyter_get_port.py $env)
+
+if [[ "$port" -eq "$port" ]] 2>/dev/null; then
+	killing=$(jupyter notebook stop $port)
+else
+	echo $port
+fi
